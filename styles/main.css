@@ -1,0 +1,23 @@
+body{
+    background: rgba(0, 0, 0, 0.85);
+    color:rgba(255, 255, 255, 0.85);
+}
+article {
+    margin: 2%;
+}
+
+.bookings{
+    font-size: 1.5 rem;
+}
+
+.lists{
+    display:flex;
+    justify-content: space-evenly;
+    
+}
+
+.list-detail{
+    width: 40%;
+    border: 1px solid blue;
+    padding: 2%;
+}
