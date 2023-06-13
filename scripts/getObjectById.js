@@ -13,7 +13,7 @@ const bookings = getBookings()
 const bands = getBands()
 const venues = getVenues()
 
-export const getColumeBObjectByColumeAId = (columeAIdNameString, columeAIdNumber) => {
+export const getBookingsObjectsByForeignKey = (columeAIdNameString, columeAIdNumber) => {
     const filteredBookingsObjects = []
     for (const booking of bookings) {
         if (booking[columeAIdNameString] === columeAIdNumber) {
@@ -28,11 +28,11 @@ document.addEventListener('click', event => {
     if (event.target.id.startsWith('venue')) {
         const [, venueIDstring] = event.target.id.split('--')
 
-        const filteredBandsObjects = getColumeBObjectByColumeAId("venueID", Number(venueIDstring))
+        const filteredBookingsObjects = getBookingsObjectsByForeignKey("venueID", Number(venueIDstring))
 
         let alertString = `Bands playing at ${event.target.innerHTML}: `
 
-        for (const iterator of filteredBandsObjects) {
+        for (const iterator of filteredBookingsObjects) {
 
             alertString += `${getObjectById(bands, iterator.bandID).name}; `
         }
@@ -45,11 +45,11 @@ document.addEventListener('click', event => {
     if (event.target.id.startsWith('band')) {
         const [, bandIDstring] = event.target.id.split('--')
 
-        const filteredBandsObjects = getColumeBObjectByColumeAId("bandID", Number(bandIDstring))
+        const filteredBookingsObjects = getBookingsObjectsByForeignKey("bandID", Number(bandIDstring))
 
         let alertString = `Veneus ${event.target.innerHTML} plays: `
 
-        for (const iterator of filteredBandsObjects) {
+        for (const iterator of filteredBookingsObjects) {
 
             alertString += `${getObjectById(venues, iterator.venueID).name}; `
         }

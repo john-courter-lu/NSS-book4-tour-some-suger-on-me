@@ -1,5 +1,5 @@
 
-//原来的booking HTML 生成器。后用if。。。else。。。合并到了HTMLGenerator
+// previous booking HTML generator. replaced by if...else... when merging into htmlGenerator.js
 
 /* 
 
